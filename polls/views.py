@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
@@ -6,6 +6,8 @@ from django.utils import timezone
 
 from .models import Choice, Question
 
+def showtime(request):
+        return HttpResponse('Request time is: {}'.format(request.current_time))
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
